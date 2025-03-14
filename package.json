@@ -1,0 +1,57 @@
+{
+    "name": "signalk-aquamap-provider",
+    "version": "0.0.1",
+    "description": "Aqua Map resources provider plugin for Signal K server.",
+    "main": "plugin/index.js",
+    "scripts": {
+        "build": "tsc",
+        "build-declaration": "tsc --declaration --allowJs false",
+        "watch": "npm run build -- -w",
+        "start": "npm run build -- -w",
+        "prepare": "tsc",
+        "prettier": "prettier -w src/",
+        "lint": "eslint -c .eslintrc.js --ext .ts --ext .js --fix src/",
+        "format": "npm run prettier && npm run lint",
+        "ci-lint": "eslint -c .eslintrc.js --ext .ts --ext .js src/ && prettier --check src/",
+        "test": "mocha",
+        "deploy": "npm build && npm test && git tag -a v$npm_package_version -m 'Release v$npm_package_version'; git push --tags; npm publish --access public --scope @signalk ."
+    },
+    "keywords": [
+        "signalk-node-server-plugin",
+        "signalk-category-utility",
+        "signalk",
+        "resources",
+        "routes",
+        "waypoints",
+        "regions",
+        "notes"
+    ],
+    "repository": "https://github.com/night199uk/signalk-aquamap-provider",
+    "author": "night199uk",
+    "contributors": [],
+    "license": "Apache-20",
+    "dependencies": {
+        "@signalk/server-api": "^2.5.0",
+        "@tmcw/togeojson": "^7.0.0",
+        "@types/geojson": "^7946.0.16",
+        "@xmldom/xmldom": "^0.9.8",
+        "geojson-validation": "^0.2.0",
+        "geolib": "^3.3.3",
+        "jslint": "^0.12.1",
+        "ngeohash": "^0.6.3"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.22.0",
+        "@signalk/server-api": "^2.1.0",
+        "@types/express": "^4.17.6",
+        "@types/ngeohash": "^0.6.4",
+        "@types/node-fetch": "^2.5.6",
+        "@typescript-eslint/eslint-plugin": "^8.16.0",
+        "eslint": "^8.57.1",
+        "eslint-config-prettier": "^8.6.0",
+        "globals": "^16.0.0",
+        "prettier": "^2.8.4",
+        "typescript": "^4.9.5"
+    },
+    "signalk-plugin-enabled-by-default": true
+}
